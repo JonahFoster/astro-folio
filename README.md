@@ -1,295 +1,129 @@
-# 🚀 AstroWind
+# The Foster Gazette — jonahfoster.com
 
-<img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/lighthouse-score.png" align="right"
-     alt="AstroWind Lighthouse Score" width="100" height="358">
+Personal brand / thought leadership site for Jonah Foster, built as a fictional newspaper called **The Foster Gazette**. The entire site uses a broadsheet newspaper metaphor — sections are "columns," blog posts are "dispatches," the contact page is "Letters to the Editor," the about section is "Classifieds," etc.
 
-🌟 _Most *starred* & *forked* Astro theme in 2022 & 2023_. 🌟
+## Concept
 
-**AstroWind** is a free and open-source template to make your website using **[Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
+This is NOT a portfolio site or a resume. It's a personal brand platform with a built-in content framework. The newspaper conceit gives every page type a natural name and structure without feeling forced. The tone is warm, funny, and self-aware — never try-hard. Jonah is a funny guy and the humor should feel effortless.
 
-- ✅ **Production-ready** scores in **PageSpeed Insights** reports.
-- ✅ Integration with **Tailwind CSS** supporting **Dark mode** and **_RTL_**.
-- ✅ **Fast and SEO friendly blog** with automatic **RSS feed**, **MDX** support, **Categories & Tags**, **Social Share**, ...
-- ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
-- ✅ Generation of **project sitemap** based on your routes.
-- ✅ **Open Graph tags** for social media sharing.
-- ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
+The flagship example of the tone: the main headline reads **"Local Man Builds Things for the Internet, Seems to Enjoy It"** and the bio is written in third person like a newspaper profile. The footer says "Pulitzer pending."
 
-<br>
+## Tech Stack
 
-<img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/screenshot-astrowind-1.png" alt="AstroWind Theme Screenshot">
+- **Framework:** Astro
+- **Blog/Content:** Astro Content Collections with MDX
+- **Styling:** Custom CSS (no framework — the newspaper aesthetic requires precise typographic control)
+- **Fonts:** Playfair Display (headlines), Source Serif 4 (body), Courier Prime (labels/kickers/datelines)
+- **Deployment:** Netlify
 
-[![onWidget](https://custom-icon-badges.demolab.com/badge/made%20by%20-onWidget-556bf2?style=flat-square&logo=onwidget&logoColor=white&labelColor=101827)](https://onwidget.com)
-[![License](https://img.shields.io/github/license/onwidget/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/onwidget/astrowind/blob/main/LICENSE.md)
-[![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/onwidget)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/onwidget/astrowind#contributing)
-[![Known Vulnerabilities](https://snyk.io/test/github/onwidget/astrowind/badge.svg?style=flat-square)](https://snyk.io/test/github/onwidget/astrowind)
-[![Stars](https://img.shields.io/github/stars/onwidget/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
-[![Forks](https://img.shields.io/github/forks/onwidget/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
+## Design System
 
-<br>
+### Colors
+- `--ink: #1a1714` — primary text, rules
+- `--paper: #F5F0E8` — background (warm cream, not white)
+- `--paper-dark: #EBE4D6` — secondary backgrounds, hover states
+- `--red: #C41E1E` — accent color, used sparingly for kickers and links
+- `--muted: #6B6358` — secondary text
 
-<details open>
-<summary>Table of Contents</summary>
+### Typography
+- **Headlines:** Playfair Display, 900 weight. Big, bold, serif. The soul of the newspaper look.
+- **Body:** Source Serif 4, 400 weight. Readable, warm, literary.
+- **Labels/UI:** Courier Prime, uppercase, letterspaced. Used for kickers ("PROFILE," "DAY JOB"), nav items, datelines, classified labels, and bylines.
 
-- [Demo](#demo)
-- [Upcoming: AstroWind 2.0 – We Need Your Vision!](#-upcoming-astrowind-20--we-need-your-vision)
-- [Getting started](#getting-started)
-  - [Project structure](#project-structure)
-  - [Commands](#commands)
-  - [Configuration](#configuration)
-  - [Deploy](#deploy)
-- [Frequently Asked Questions](#frequently-asked-questions)
-- [Related Projects](#related-projects)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+### Layout Patterns
+- **Multi-column grids** separated by 1px ink-colored vertical rules (like newspaper columns)
+- **Horizontal rules** (1px solid) to separate sections
+- **Drop caps** on the lede paragraph (first letter is Playfair Display, 3.8rem, red)
+- **Subtle paper texture** via an inline SVG noise filter on the body background
 
-</details>
+### Design Principles
+- No rounded corners, no cards with shadows, no gradients. This is a newspaper — flat, ruled, typographic.
+- Red accent is used ONLY for kickers, link hovers, dispatch numbers on hover, and the drop cap. Never decorative.
+- Spacing should feel tight and editorial, not airy SaaS-style.
+- Hover states are subtle — text indents, color shifts, no transforms or scale effects.
 
-<br>
+## Site Structure
 
-## Demo
-
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
-
-<br>
-
-## 🔔 Upcoming: AstroWind 2.0 – We Need Your Vision!
-
-We're embarking on an exciting journey with **AstroWind 2.0**, and we want you to be a part of it! We're currently taking the first steps in developing this new version and your insights are invaluable. Join the discussion and share your feedback, ideas, and suggestions to help shape the future of **AstroWind**. Let's make **AstroWind 2.0** even better, together!
-
-[Share Your Feedback in Our Discussion!](https://github.com/onwidget/astrowind/discussions/392)
-
-<br>
-
-## Getting started
-
-**AstroWind** tries to give you quick access to creating a website using [Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
-
-Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.
-
-In this version the template supports all the options in the `output` configuration, `static`, `hybrid` and `server`, but the blog only works with `prerender = true`. We are working on the next version and aim to make it fully compatible with SSR.
-
-### Project structure
-
-Inside **AstroWind** template, you'll see the following folders and files:
+### Pages
 
 ```
-/
-├── public/
-│   ├── _headers
-│   └── robots.txt
-├── src/
-│   ├── assets/
-│   │   ├── favicons/
-│   │   ├── images/
-│   │   └── styles/
-│   │       └── tailwind.css
-│   ├── components/
-│   │   ├── blog/
-│   │   ├── common/
-│   │   ├── ui/
-│   │   ├── widgets/
-│   │   │   ├── Header.astro
-│   │   │   └── ...
-│   │   ├── CustomStyles.astro
-│   │   ├── Favicons.astro
-│   │   └── Logo.astro
-│   ├── content/
-│   │   ├── post/
-│   │   │   ├── post-slug-1.md
-│   │   │   ├── post-slug-2.mdx
-│   │   │   └── ...
-│   │   └-- config.ts
-│   ├── layouts/
-│   │   ├── Layout.astro
-│   │   ├── MarkdownLayout.astro
-│   │   └── PageLayout.astro
-│   ├── pages/
-│   │   ├── [...blog]/
-│   │   │   ├── [category]/
-│   │   │   ├── [tag]/
-│   │   │   ├── [...page].astro
-│   │   │   └── index.astro
-│   │   ├── index.astro
-│   │   ├── 404.astro
-│   │   ├-- rss.xml.ts
-│   │   └── ...
-│   ├── utils/
-│   ├── config.yaml
-│   └── navigation.js
-├── package.json
-├── astro.config.ts
-└── ...
+/                   → Homepage (the "front page")
+/dispatches         → Blog listing (all dispatches)
+/dispatches/[slug]  → Individual blog post
+/projects           → Projects page (expanded from homepage)
+/about              → About page (includes Classifieds section)
+/contact            → "Letters to the Editor" — contact form
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Homepage Sections (in order)
+1. **Masthead** — dateline ("Gainesville, Florida · Est. 2023 · Published Irregularly"), "The Foster Gazette" in large Playfair Display
+2. **Nav bar** — centered mono links between two horizontal rules
+3. **Headline section** — two-column: main profile article (left, ~70%) + sidebar items (right, ~30%) separated by vertical rule
+4. **Three-column projects** — three equal columns separated by vertical rules, each with a kicker label, title, description, and link
+5. **Dispatches** — centered section header, list of blog post links with large dispatch numbers (01, 02, etc.) and category tags
+6. **Classifieds** — two-column grid: "Personnel File" (left) and "Where to Find Me" (right)
+7. **Footer** — centered, mono, includes "Pulitzer pending"
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Nav Items
+- Dispatches
+- Projects
+- About
+- Contact (labeled "Letters to the Editor")
 
-Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
+## Content & Tone Guide
 
-[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/onwidget/astrowind/tree/main) [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/onwidget/astrowind) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/onwidget/astrowind)
+### About Jonah (for writing copy)
+- **Day job:** Frontend Engineer at COUNT (getcount.com) — an accounting software startup. He builds the frontend and has been stepping into product thinking. Do NOT call it payroll software. Do NOT mention specific internal tools (Rollfi, Linear tickets, etc.).
+- **His own thing:** GNV Web Design (gnvwebdesign.com) — a web design and SEO agency. It's just him and the occasional freelancer. OK to call it an "agency" — don't call it a "side business" or "side hustle." Don't mention specific client names or client counts.
+- **Education:** University of Florida, B.A. in History
+- **Location:** Lives in Florida (not Gainesville specifically in body copy; Gainesville is fine in the masthead dateline since that's where the "paper" is published)
+- **Personal:** Married to Ezma. Has a cat. Into coffee, college baseball, history (ties to his degree). Reads a lot — currently Making Things Happen by Scott Berkun and War and Peace.
+- **Tech stack:** Astro, Tailwind, React, Node.js. Also into SEO, Product Strategy, AI Automation, Webflow.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file `README.md`. Update `src/config.yaml` and contents. Have fun!
+### Tone Rules
+- Third person for the profile/lede section. First person is fine elsewhere (dispatches, project descriptions).
+- Funny but not jokey. The humor comes from the framing (newspaper metaphor) and dry observations, not from punchlines.
+- Confident but not braggy. "Managed to convince a small but growing number of people that he knows what he's doing" — that's the register.
+- Never mention specific internal work details (bug ticket numbers, API names, coworker names, internal processes).
+- Don't mention personal AI-powered tools or side projects (like the SEO audit engine) unless Jonah specifically wants to feature them.
 
-<br>
+### Newspaper Voice Conventions
+- Kickers are uppercase mono: PROFILE, DAY JOB, MY OWN THING, CURRENTLY READING, etc.
+- Bylines: "By Jonah Foster · Ongoing" or "By Jonah Foster · March 2026"
+- Blog posts are called "dispatches"
+- Categories/tags are displayed in uppercase mono
+- Section headers use Playfair Display, centered when standalone
 
-### Commands
+## File Structure (planned)
 
-All commands are run from the root of the project, from a terminal:
-
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `npm install`       | Installs dependencies                              |
-| `npm run dev`       | Starts local dev server at `localhost:3000`        |
-| `npm run build`     | Build your production site to `./dist/`            |
-| `npm run preview`   | Preview your build locally, before deploying       |
-| `npm run check`     | Check your project for errors                      |
-| `npm run fix`       | Run Eslint and format codes with Prettier          |
-| `npm run astro ...` | Run CLI commands like `astro add`, `astro preview` |
-
-<br>
-
-### Configuration
-
-Basic configuration file: `./src/config.yaml`
-
-```yaml
-site:
-  name: 'Example'
-  site: 'https://example.com'
-  base: '/' # Change this if you need to deploy to Github Pages, for example
-  trailingSlash: false # Generate permalinks with or without "/" at the end
-
-  googleSiteVerificationId: false # Or some value,
-
-# Default SEO metadata
-metadata:
-  title:
-    default: 'Example'
-    template: '%s — Example'
-  description: 'This is the default meta description of Example website'
-  robots:
-    index: true
-    follow: true
-  openGraph:
-    site_name: 'Example'
-    images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
-    type: website
-  twitter:
-    handle: '@twitter_user'
-    site: '@twitter_user'
-    cardType: summary_large_image
-
-i18n:
-  language: en
-  textDirection: ltr
-
-apps:
-  blog:
-    isEnabled: true # If the blog will be enabled
-    postsPerPage: 6 # Number of posts per page
-
-    post:
-      isEnabled: true
-      permalink: '/blog/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
-      robots:
-        index: true
-
-    list:
-      isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
-      robots:
-        index: true
-
-    category:
-      isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
-      robots:
-        index: true
-
-    tag:
-      isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
-      robots:
-        index: false
-
-    isRelatedPostsEnabled: true # If a widget with related posts is to be displayed below each post
-    relatedPostsCount: 4 # Number of related posts to display
-
-analytics:
-  vendors:
-    googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
-
-ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+```
+src/
+├── layouts/
+│   ├── BaseLayout.astro        # HTML head, fonts, global styles
+│   └── DispatchLayout.astro    # Blog post layout with newspaper article styling
+├── pages/
+│   ├── index.astro             # Homepage / front page
+│   ├── dispatches/
+│   │   └── index.astro         # Dispatch listing
+│   ├── projects.astro
+│   ├── about.astro
+│   └── contact.astro
+├── components/
+│   ├── Masthead.astro
+│   ├── NavBar.astro
+│   ├── HeadlineSection.astro
+│   ├── ProjectColumns.astro
+│   ├── DispatchList.astro
+│   ├── Classifieds.astro
+│   └── Footer.astro
+├── content/
+│   └── dispatches/             # MDX blog posts
+│       └── *.mdx
+├── styles/
+│   └── global.css              # All CSS (design system + component styles)
+└── assets/
 ```
 
-<br>
+## Reference
 
-#### Customize Design
-
-To customize Font families, Colors or more Elements refer to the following files:
-
-- `src/components/CustomStyles.astro`
-- `src/assets/styles/tailwind.css`
-
-### Deploy
-
-#### Deploy to production (manual)
-
-You can create an optimized production build with:
-
-```shell
-npm run build
-```
-
-Now, your website is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
-
-#### Deploy to Netlify
-
-Clone this repository on your own GitHub account and deploy it to Netlify:
-
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/onwidget/astrowind)
-
-#### Deploy to Vercel
-
-Clone this repository on your own GitHub account and deploy to Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonwidget%2Fastrowind)
-
-<br>
-
-## Frequently Asked Questions
-
-- Why?
--
--
-
-<br>
-
-## Related projects
-
-- [TailNext](https://tailnext.vercel.app/) - Free template using Next.js 14 and Tailwind CSS with the new App Router.
-- [Qwind](https://qwind.pages.dev/) - Free template to make your website using Qwik + Tailwind CSS.
-
-## Contributing
-
-If you have any ideas, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
-That would be very useful for all of us and we would be happy to listen and take action.
-
-## Acknowledgements
-
-Initially created by [onWidget](https://onwidget.com) and maintained by a community of [contributors](https://github.com/onwidget/astrowind/graphs/contributors).
-
-## License
-
-**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+The homepage HTML prototype is `gazette-v2.html` — this is the source of truth for the design. All CSS, layout, typography, and content decisions are finalized there. Build the Astro project to match it exactly, then extend for additional pages.

@@ -1,0 +1,91 @@
+<section class="classifieds" id="classifieds">
+  <div class="classified-col">
+    <h3>Personnel File</h3>
+    <div class="classified-entry">
+      <div class="cl-label">Education</div>
+      <div class="cl-value">University of Florida, B.A. in History</div>
+    </div>
+    <div class="classified-entry">
+      <div class="cl-label">Primary Stack</div>
+      <div class="cl-value">Astro, Tailwind, React, Node.js</div>
+    </div>
+    <div class="classified-entry">
+      <div class="cl-label">Also Work With</div>
+      <div class="cl-value">SEO, AEO, AI Automation, Webflow</div>
+    </div>
+    <div class="classified-entry">
+      <div class="cl-label">Off the Clock</div>
+      <div class="cl-value">Coffee, college baseball, or reading about something that happened hundreds of years ago</div>
+    </div>
+  </div>
+  <div class="classified-col">
+    <h3>Where to Find Me</h3>
+    <div class="classified-entry">
+      <div class="cl-label">GitHub</div>
+      <div class="cl-value"><a href="https://github.com/JonahFoster">github.com/JonahFoster</a></div>
+    </div>
+    <div class="classified-entry">
+      <div class="cl-label">LinkedIn</div>
+      <div class="cl-value"><a href="https://linkedin.com/in/jonahfoster">linkedin.com/in/jon
+        hfoster</a></div>
+    </div>
+    <div class="classified-entry">
+      <div class="cl-label">GNV Web Design</div>
+      <div class="cl-value"><a href="https://gnvwebdesign.com">gnvwebdesign.com</a></div>
+    </div>
+    <div class="classified-entry">
+      <div class="cl-label">Twitter</div>
+      <div class="cl-value"><a href="https://twitter.com/thejonahfoster">@thejonahfoster</a></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .classifieds {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    padding: var(--space-8) 0;
+    border-bottom: var(--rule-thin) solid var(--ink);
+  }
+
+  h3 {
+    font-family: var(--font-headline);
+    font-size: var(--text-lg);
+    font-weight: 900;
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-15);
+    border-bottom: var(--rule-accent) solid var(--ink);
+  }
+
+  .classified-entry {
+    padding: var(--space-3) 0;
+    border-bottom: var(--rule-thin) solid var(--paper-dark);
+  }
+
+  .cl-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-sm);
+    color: var(--muted);
+  }
+
+  .cl-value {
+    font-size: var(--text-sm);
+    margin-top: var(--space-05);
+  }
+
+  .cl-value a {
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: var(--rule-thin) solid transparent;
+    transition: border-color var(--duration-fast);
+  }
+
+  .cl-value a:hover { border-color: var(--red); }
+
+  @media (max-width: 860px) {
+    .classifieds { grid-template-columns: 1fr; }
+  }
+</style>

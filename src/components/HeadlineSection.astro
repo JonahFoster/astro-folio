@@ -1,0 +1,137 @@
+<section class="headline-section" id="work">
+  <div class="headline-main">
+    <div class="kicker">Profile</div>
+    <h2>Local Man Builds Things for the Internet, Seems to Enjoy It</h2>
+    <div class="byline">By Jonah Foster &middot; Ongoing</div>
+    <p class="lede">Somewhere between shipping features at an accounting software startup and running a scrappy web design agency, Jonah Foster has managed to convince a small but growing number of people that he knows what he's doing. Sources close to the subject describe him as "a frontend engineer who can't stop having opinions about the product," and also "pretty good at SEO for some reason." He lives in Florida with his wife and a deeply indifferent cat. The investigation continues.</p>
+  </div>
+  <aside class="headline-sidebar">
+    <div class="sidebar-item">
+      <div class="sidebar-kicker">Day Job</div>
+      <h3>Frontend Engineer at COUNT</h3>
+      <p>Building accounting software. Shipping features, fixing bugs, and occasionally asking "but why" in meetings.</p>
+    </div>
+    <div class="sidebar-item">
+      <div class="sidebar-kicker">My Own Thing</div>
+      <h3>GNV Web Design</h3>
+      <p>Web design and SEO for small businesses who deserve a better website than what they currently have.</p>
+    </div>
+    <div class="sidebar-item">
+      <div class="sidebar-kicker">Currently Reading</div>
+      <h3>Making Things Happen &amp; War and Peace</h3>
+      <p>Scott Berkun on shipping and project management. Tolstoy on everything else.</p>
+    </div>
+  </aside>
+</section>
+
+<style>
+  .headline-section {
+    display: grid;
+    grid-template-columns: 1fr var(--sidebar-width);
+    border-bottom: var(--rule-thin) solid var(--ink);
+    min-height: 380px;
+  }
+
+  .headline-main {
+    padding: var(--space-8) var(--space-10) var(--space-8) 0;
+    border-right: var(--rule-thin) solid var(--ink);
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: var(--tracking-lg);
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: var(--space-25);
+  }
+
+  h2 {
+    font-family: var(--font-headline);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-neg);
+    margin-bottom: var(--space-4);
+  }
+
+  .byline {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-sm);
+    color: var(--muted);
+    margin-bottom: var(--space-5);
+  }
+
+  .lede {
+    font-size: var(--text-lg);
+    line-height: var(--leading-loose);
+    color: var(--ink);
+    max-width: 580px;
+  }
+
+  .lede::first-letter {
+    font-family: var(--font-headline);
+    font-size: var(--text-4xl);
+    float: left;
+    line-height: var(--leading-compressed);
+    margin-right: var(--space-05);
+    margin-top: var(--space-05);
+    font-weight: 900;
+    color: var(--red);
+  }
+
+  .headline-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-8) 0 var(--space-8) var(--space-8);
+  }
+
+  .sidebar-item {
+    padding-bottom: var(--space-5);
+    border-bottom: var(--rule-thin) solid var(--paper-dark);
+  }
+
+  .sidebar-item:last-child { border-bottom: none; }
+
+  .sidebar-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-md);
+    color: var(--red);
+    margin-bottom: var(--space-1);
+  }
+
+  h3 {
+    font-family: var(--font-headline);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-1);
+  }
+
+  .sidebar-item p {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    line-height: var(--leading-normal);
+  }
+
+  @media (max-width: 860px) {
+    .headline-section { grid-template-columns: 1fr; }
+
+    .headline-main {
+      border-right: none;
+      padding-right: 0;
+      border-bottom: var(--rule-thin) solid var(--ink);
+    }
+
+    .headline-sidebar { padding-left: 0; }
+
+    h2 { font-size: var(--text-2xl); }
+  }
+</style>

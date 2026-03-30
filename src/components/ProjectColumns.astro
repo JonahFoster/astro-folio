@@ -1,0 +1,98 @@
+<section class="three-col" id="projects">
+  <div class="col">
+    <div class="col-head">SaaS &middot; Featured</div>
+    <h3>COUNT &mdash; Accounting Software</h3>
+    <p>Frontend engineering for a growing accounting platform. Building the interfaces people use to manage their books, track expenses, and close the month without losing their minds.</p>
+    <a href="https://getcount.com">Visit &rarr;</a>
+  </div>
+  <div class="col">
+    <div class="col-head">My Own Thing &middot; Featured</div>
+    <h3>GNV Web Design</h3>
+    <p>What started as freelance gigs on Upwork turned into a real business. I build sites and handle SEO for people who know they need a better web presence but don't know where to start..</p>
+    <a href="https://gnvwebdesign.com">Visit &rarr;</a>
+  </div>
+  <div class="col">
+    <div class="col-head">Side Project &middot; Archived</div>
+    <h3>College Baseball Stats</h3>
+    <p>Every college baseball player's stats from 2014 to 2023. React, Firebase, and a Python scraper. My first full-stack project and still alive somehow.</p>
+    <a href="https://college-baseball-stats.web.app/" rel="noopener" target="_blank">Visit &rarr;</a>
+  </div>
+</section>
+
+<style>
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: var(--rule-thin) solid var(--ink);
+  }
+
+  .col {
+    padding: var(--space-7);
+    border-right: var(--rule-thin) solid var(--ink);
+  }
+
+  .col:first-child { padding-left: 0; }
+  .col:last-child { border-right: none; padding-right: 0; }
+
+  .col-head {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-lg);
+    color: var(--muted);
+    border-bottom: var(--rule-accent) solid var(--ink);
+    padding-bottom: var(--space-15);
+    margin-bottom: var(--space-4);
+  }
+
+  h3 {
+    font-family: var(--font-headline);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-25);
+  }
+
+  p {
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+  }
+
+  a {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-md);
+    color: var(--red);
+    text-decoration: none;
+    margin-top: var(--space-25);
+    border-bottom: var(--rule-thin) solid var(--red);
+    transition: opacity var(--duration-fast);
+  }
+
+  a:hover { opacity: 0.7; }
+
+  @media (max-width: 1024px) {
+    .three-col { grid-template-columns: 1fr 1fr; }
+    .col:nth-child(2) { border-right: none; }
+    .col:nth-child(3) {
+      padding-left: 0;
+      border-top: var(--rule-thin) solid var(--paper-dark);
+    }
+  }
+
+  @media (max-width: 860px) {
+    .three-col { grid-template-columns: 1fr; }
+
+    .col {
+      border-right: none;
+      padding: var(--space-6) 0;
+      border-bottom: var(--rule-thin) solid var(--paper-dark);
+    }
+
+    .col:first-child { padding-left: 0; }
+    .col:last-child { border-bottom: none; }
+  }
+</style>

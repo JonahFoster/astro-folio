@@ -1,0 +1,109 @@
+<section class="dispatches">
+  <div class="section-head">Dispatches</div>
+  <div class="section-sub">Thoughts, notes, and things I learned the hard way</div>
+  <div class="dispatch-list">
+    <a href="#" class="dispatch-item">
+      <span class="dispatch-num">01</span>
+      <h4>How to Accidentally Become the Product Person</h4>
+      <span class="dispatch-tag">Product</span>
+    </a>
+    <a href="#" class="dispatch-item">
+      <span class="dispatch-num">02</span>
+      <h4>Building an SEO Audit Tool on a Budget</h4>
+      <span class="dispatch-tag">Engineering</span>
+    </a>
+    <a href="#" class="dispatch-item">
+      <span class="dispatch-num">03</span>
+      <h4>Domain Expertise is a Frontend Superpower</h4>
+      <span class="dispatch-tag">Career</span>
+    </a>
+    <a href="#" class="dispatch-item">
+      <span class="dispatch-num">04</span>
+      <h4>My AI-Assisted Dev Workflow (Cursor + Claude Edition)</h4>
+      <span class="dispatch-tag">Tools</span>
+    </a>
+    <a href="#" class="dispatch-item">
+      <span class="dispatch-num">05</span>
+      <h4>Running an Agency While Employed Full-Time</h4>
+      <span class="dispatch-tag">Business</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .dispatches {
+    padding: var(--space-8) 0;
+    border-bottom: var(--rule-thin) solid var(--ink);
+  }
+
+  .section-head {
+    font-family: var(--font-headline);
+    font-size: var(--text-xl);
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: var(--space-1);
+  }
+
+  .section-sub {
+    font-style: italic;
+    font-size: var(--text-sm);
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .dispatch-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dispatch-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: var(--space-5);
+    align-items: baseline;
+    padding: var(--space-3) 0;
+    border-top: var(--rule-thin) solid var(--paper-dark);
+    text-decoration: none;
+    color: var(--ink);
+    transition: background var(--duration-fast);
+  }
+
+  .dispatch-item:hover {
+    background: var(--paper-dark);
+    margin: 0 calc(-1 * var(--space-2));
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .dispatch-num {
+    font-family: var(--font-headline);
+    font-size: var(--text-2xl);
+    font-weight: 900;
+    line-height: var(--leading-none);
+    text-align: right;
+    color: var(--paper-dark);
+  }
+
+  .dispatch-item:hover .dispatch-num { color: var(--red); }
+
+  h4 {
+    font-family: var(--font-headline);
+    font-size: var(--text-md);
+    font-weight: 600;
+    line-height: var(--leading-snug);
+  }
+
+  .dispatch-tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-md);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 860px) {
+    .dispatch-item { grid-template-columns: 40px 1fr; }
+    .dispatch-tag { display: none; }
+  }
+</style>

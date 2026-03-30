@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Foster Gazette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Courier+Prime:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1714;
+    --paper: #F5F0E8;
+    --paper-dark: #EBE4D6;
+    --red: #C41E1E;
+    --muted: #6B6358;
+    --rule: #1a1714;
+    --font-headline: 'Playfair Display', Georgia, serif;
+    --font-body: 'Source Serif 4', Georgia, serif;
+    --font-mono: 'Courier Prime', 'Courier New', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    /* Subtle paper texture via noise */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  ::selection { background: var(--red); color: white; }
+
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .masthead .dateline {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .masthead h1 {
+    font-family: var(--font-headline);
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .thin-rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+
+  .thick-rule {
+    border: none;
+    border-top: 3px solid var(--rule);
+    margin: 0;
+  }
+
+  /* NAV BAR */
+  .nav-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-bar a {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-bar a:hover { color: var(--red); }
+
+  /* HEADLINE SECTION */
+  .headline-section {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    min-height: 380px;
+  }
+
+  .headline-main {
+    padding: 2rem 2.5rem 2rem 0;
+    border-right: 1px solid var(--rule);
+  }
+
+  .headline-main .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .headline-main h2 {
+    font-family: var(--font-headline);
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 1rem;
+  }
+
+  .headline-main .byline {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .headline-main .lede {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 580px;
+  }
+
+  .headline-main .lede::first-letter {
+    font-family: var(--font-headline);
+    font-size: 3.8rem;
+    float: left;
+    line-height: 0.75;
+    margin-right: 0.15rem;
+    margin-top: 0.12rem;
+    font-weight: 900;
+    color: var(--red);
+  }
+
+  .headline-sidebar {
+    padding: 2rem 0 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-item {
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--paper-dark);
+  }
+
+  .sidebar-item:last-child { border-bottom: none; }
+
+  .sidebar-item .sidebar-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .sidebar-item h3 {
+    font-family: var(--font-headline);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+  }
+
+  .sidebar-item p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* THREE COLUMN SECTION */
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .col {
+    padding: 1.8rem 1.8rem;
+    border-right: 1px solid var(--rule);
+  }
+
+  .col:first-child { padding-left: 0; }
+  .col:last-child { border-right: none; padding-right: 0; }
+
+  .col .col-head {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .col h3 {
+    font-family: var(--font-headline);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+  }
+
+  .col p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .col a {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid var(--red);
+    transition: opacity 0.2s;
+  }
+
+  .col a:hover { opacity: 0.7; }
+
+  /* DISPATCHES */
+  .dispatches {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .dispatches .section-head {
+    font-family: var(--font-headline);
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 0.3rem;
+  }
+
+  .dispatches .section-sub {
+    text-align: center;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dispatch-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dispatch-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 1.2rem;
+    align-items: baseline;
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--paper-dark);
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.2s;
+  }
+
+  .dispatch-item:hover { background: var(--paper-dark); margin: 0 -0.5rem; padding: 0.8rem 0.5rem; }
+
+  .dispatch-item .dispatch-num {
+    font-family: var(--font-headline);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--paper-dark);
+    line-height: 1;
+    text-align: right;
+  }
+
+  .dispatch-item:hover .dispatch-num { color: var(--red); }
+
+  .dispatch-item h4 {
+    font-family: var(--font-headline);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .dispatch-item .dispatch-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* CLASSIFIEDS */
+  .classifieds {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .classified-col h3 {
+    font-family: var(--font-headline);
+    font-size: 1.1rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .classified-entry {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--paper-dark);
+  }
+
+  .classified-entry .cl-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  .classified-entry .cl-value {
+    font-size: 0.92rem;
+    margin-top: 0.1rem;
+  }
+
+  .classified-entry .cl-value a {
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .classified-entry .cl-value a:hover { border-color: var(--red); }
+
+  /* FOOTER */
+  .paper-footer {
+    padding: 1.5rem 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; animation: fadeIn 0.8s ease forwards; }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; }
+  .d3 { animation-delay: 0.3s; } .d4 { animation-delay: 0.4s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .masthead h1 { font-size: 2.8rem; }
+    .headline-section { grid-template-columns: 1fr; }
+    .headline-main { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule); }
+    .headline-sidebar { padding-left: 0; }
+    .three-col { grid-template-columns: 1fr; }
+    .col { border-right: none; padding: 1.5rem 0; border-bottom: 1px solid var(--paper-dark); }
+    .col:last-child { border-bottom: none; }
+    .classifieds { grid-template-columns: 1fr; }
+    .headline-main h2 { font-size: 2rem; }
+    .dispatch-item { grid-template-columns: 40px 1fr; }
+    .dispatch-item .dispatch-tag { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <header class="masthead fade-in">
+    <div class="dateline">Gainesville, Florida &middot; Est. 2023 &middot; Published Irregularly</div>
+    <h1>The Foster Gazette</h1>
+  </header>
+
+  <nav class="nav-bar fade-in d1">
+    <a href="#work">Work</a>
+    <a href="#dispatches">Dispatches</a>
+    <a href="#projects">Projects</a>
+    <a href="#classifieds">Classifieds</a>
+    <a href="mailto:jonah@jonahfoster.com">Letters to the Editor</a>
+  </nav>
+
+  <!-- HEADLINE -->
+  <section class="headline-section fade-in d2" id="work">
+    <div class="headline-main">
+      <div class="kicker">Profile</div>
+      <h2>Local Man Builds Things for the Internet, Seems to Enjoy It</h2>
+      <div class="byline">By Jonah Foster &middot; Ongoing</div>
+      <p class="lede">Somewhere between shipping features at an accounting software startup and running a scrappy web design agency, Jonah Foster has managed to convince a small but growing number of people that he knows what he's doing. Sources close to the subject describe him as "a frontend engineer who can't stop having opinions about the product," and also "pretty good at SEO for some reason." He lives in Florida with his wife and a deeply indifferent cat. The investigation continues.</p>
+    </div>
+    <aside class="headline-sidebar">
+      <div class="sidebar-item">
+        <div class="sidebar-kicker">Day Job</div>
+        <h3>Frontend Engineer at COUNT</h3>
+        <p>Building accounting software. Shipping features, fixing bugs, and occasionally asking "but why" in meetings.</p>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-kicker">My Own Thing</div>
+        <h3>GNV Web Design</h3>
+        <p>Web design and SEO for small businesses who deserve a better website than what they currently have.</p>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-kicker">Currently Reading</div>
+        <h3>Making Things Happen &amp; War and Peace</h3>
+        <p>Scott Berkun on shipping and project management. Tolstoy on everything else.</p>
+      </div>
+    </aside>
+  </section>
+
+  <!-- THREE COLUMNS: PROJECTS -->
+  <section class="three-col fade-in d3" id="projects">
+    <div class="col">
+      <div class="col-head">SaaS &middot; Featured</div>
+      <h3>COUNT — Accounting Software</h3>
+      <p>Frontend engineering and product thinking for a growing accounting platform. Building the interfaces people use to manage their books, track expenses, and close the month without losing their minds.</p>
+      <a href="https://getcount.com">Visit →</a>
+    </div>
+    <div class="col">
+      <div class="col-head">My Own Thing &middot; Featured</div>
+      <h3>GNV Web Design</h3>
+      <p>Websites and SEO for small businesses. I design, build, and optimize sites for people who deserve a better web presence than what they've got.</p>
+      <a href="https://gnvwebdesign.com">Visit →</a>
+    </div>
+    <div class="col">
+      <div class="col-head">Side Project &middot; Archived</div>
+      <h3>College Baseball Stats</h3>
+      <p>Every college baseball player's stats since 2020. React, Firebase, and a Python scraper. My first full-stack project and still alive somehow.</p>
+      <a href="#">Visit →</a>
+    </div>
+  </section>
+
+  <!-- DISPATCHES -->
+  <section class="dispatches fade-in d4" id="dispatches">
+    <div class="section-head">Dispatches</div>
+    <div class="section-sub">Thoughts, notes, and things I learned the hard way</div>
+    <div class="dispatch-list">
+      <a href="#" class="dispatch-item">
+        <span class="dispatch-num">01</span>
+        <h4>How to Accidentally Become the Product Person</h4>
+        <span class="dispatch-tag">Product</span>
+      </a>
+      <a href="#" class="dispatch-item">
+        <span class="dispatch-num">02</span>
+        <h4>Building an SEO Audit Tool on a Budget</h4>
+        <span class="dispatch-tag">Engineering</span>
+      </a>
+      <a href="#" class="dispatch-item">
+        <span class="dispatch-num">03</span>
+        <h4>Domain Expertise is a Frontend Superpower</h4>
+        <span class="dispatch-tag">Career</span>
+      </a>
+      <a href="#" class="dispatch-item">
+        <span class="dispatch-num">04</span>
+        <h4>My AI-Assisted Dev Workflow (Cursor + Claude Edition)</h4>
+        <span class="dispatch-tag">Tools</span>
+      </a>
+      <a href="#" class="dispatch-item">
+        <span class="dispatch-num">05</span>
+        <h4>Running an Agency While Employed Full-Time</h4>
+        <span class="dispatch-tag">Business</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CLASSIFIEDS -->
+  <section class="classifieds" id="classifieds">
+    <div class="classified-col">
+      <h3>Personnel File</h3>
+      <div class="classified-entry">
+        <div class="cl-label">Education</div>
+        <div class="cl-value">University of Florida, B.A. in History</div>
+      </div>
+      <div class="classified-entry">
+        <div class="cl-label">Primary Stack</div>
+        <div class="cl-value">Astro, Tailwind, React, Node.js</div>
+      </div>
+      <div class="classified-entry">
+        <div class="cl-label">Also Into</div>
+        <div class="cl-value">SEO, Product Strategy, AI Automation, Webflow</div>
+      </div>
+      <div class="classified-entry">
+        <div class="cl-label">Off the Clock</div>
+        <div class="cl-value">Coffee, college baseball, or reading about something that happened hundreds of years ago</div>
+      </div>
+    </div>
+    <div class="classified-col">
+      <h3>Where to Find Me</h3>
+      <div class="classified-entry">
+        <div class="cl-label">GitHub</div>
+        <div class="cl-value"><a href="https://github.com/JonahFoster">github.com/JonahFoster</a></div>
+      </div>
+      <div class="classified-entry">
+        <div class="cl-label">LinkedIn</div>
+        <div class="cl-value"><a href="https://linkedin.com/in/jonahfoster">linkedin.com/in/jonahfoster</a></div>
+      </div>
+      <div class="classified-entry">
+        <div class="cl-label">GNV Web Design</div>
+        <div class="cl-value"><a href="https://gnvwebdesign.com">gnvwebdesign.com</a></div>
+      </div>
+      <div class="classified-entry">
+        <div class="cl-label">Twitter</div>
+        <div class="cl-value"><a href="https://twitter.com/thejonahfoster">@thejonahfoster</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="paper-footer">
+    &copy; 2026 The Foster Gazette &middot; Pulitzer pending &middot; Printed with Astro & good intentions
+  </footer>
+
+</div>
+</body>
+</html>

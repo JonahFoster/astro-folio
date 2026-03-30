@@ -1,0 +1,35 @@
+<nav class="nav-bar">
+  <a href="#work">Work</a>
+  <a href="#projects">Projects</a>
+  <a href="#classifieds">Classifieds</a>
+  <a href="mailto:jonah@jonahfoster.com">Letters to the Editor</a>
+</nav>
+
+<style>
+  .nav-bar {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    padding: var(--space-3) 0;
+    border-bottom: var(--rule-thin) solid var(--ink);
+  }
+
+  a {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-md);
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color var(--duration-fast);
+  }
+
+  a:hover { color: var(--red); }
+
+  @media (max-width: 640px) {
+    .nav-bar {
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+  }
+</style>

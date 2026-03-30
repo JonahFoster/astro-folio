@@ -1,0 +1,37 @@
+<header class="masthead">
+  <div class="dateline">Gainesville, Florida &middot; Est. 2023 &middot; Published Irregularly</div>
+  <h1>The Foster Gazette</h1>
+</header>
+
+<style>
+  .masthead {
+    text-align: center;
+    padding: var(--space-8) 0 var(--space-4);
+    border-bottom: var(--rule-thin) solid var(--ink);
+  }
+
+  .dateline {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-md);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--space-15);
+  }
+
+  h1 {
+    font-family: var(--font-headline);
+    font-size: var(--text-5xl);
+    font-weight: 900;
+    letter-spacing: var(--tracking-neg);
+    line-height: var(--leading-none);
+  }
+
+  @media (max-width: 860px) {
+    h1 { font-size: var(--text-3xl); }
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: var(--text-2xl); }
+  }
+</style>
