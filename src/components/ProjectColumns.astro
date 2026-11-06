@@ -1,15 +1,9 @@
-<section class="three-col" id="projects">
+<section class="project-columns" id="projects">
   <div class="col">
     <div class="col-head">SaaS &middot; Featured</div>
     <h3>COUNT &mdash; Accounting Software</h3>
-    <p>Frontend engineering for a growing accounting platform. Building the interfaces people use to manage their books, track expenses, and close the month without losing their minds.</p>
+    <p>I make COUNT easier to use, so people can spend less time figuring out the software and more time getting their books in order.</p>
     <a href="https://getcount.com">Visit &rarr;</a>
-  </div>
-  <div class="col">
-    <div class="col-head">My Own Thing &middot; Featured</div>
-    <h3>GNV Web Design</h3>
-    <p>What started as freelance gigs on Upwork turned into a real business. I build sites and handle SEO for people who know they need a better web presence but don't know where to start..</p>
-    <a href="https://gnvwebdesign.com">Visit &rarr;</a>
   </div>
   <div class="col">
     <div class="col-head">Side Project &middot; Archived</div>
@@ -20,9 +14,9 @@
 </section>
 
 <style>
-  .three-col {
+  .project-columns {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     border-bottom: var(--rule-thin) solid var(--ink);
   }
 
@@ -74,17 +68,8 @@
 
   a:hover { opacity: 0.7; }
 
-  @media (max-width: 1024px) {
-    .three-col { grid-template-columns: 1fr 1fr; }
-    .col:nth-child(2) { border-right: none; }
-    .col:nth-child(3) {
-      padding-left: 0;
-      border-top: var(--rule-thin) solid var(--paper-dark);
-    }
-  }
-
   @media (max-width: 860px) {
-    .three-col { grid-template-columns: 1fr; }
+    .project-columns { grid-template-columns: 1fr; }
 
     .col {
       border-right: none;
